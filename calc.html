@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/global.css">
+    <title>Dew Point Calculator</title>
+    <script src="./scripts/dewpointcalculator.js"></script>
+</head>
+<body onload="bodyOnLoad()">
+    <div class="header">
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="#">Dew Point Calculator</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div>
+        <h1>Dew Point Calculator</h1>
+        <h2>Fahrenheit</h2>
+        <div class="buttons">
+            <select id="selCommonF" onchange="selCommonOnChangeF()">
+                <option value="-459.67">Kelvin</option>
+                <option value="32">Water Freezing</option>
+                <option value="212">Water Boiling</option>
+            </select>
+            <label for="txtInputF">Enter Temperature (F)</label>
+            <input id="txtInputF" type="text" />
+            <label for="txtInputRH1">Enter Relative Humidity (%)</label>
+            <input id="txtInputRH1" type="text" />
+            <input type="button" value="Calculate" onclick="btnFClick()" />
+        </div>
+        <h2>Results:</h2>
+        <span class = "results" id="txtOutputDP1"></span>
+    
+        <br><br><br><br>
+
+        <h2>Celsius</h2>
+        <div class="buttons">
+            <select id="selCommonC" onchange="selCommonOnChangeC()">
+                <option value="-459.67">Kelvin</option>
+                <option value="32">Water Freezing</option>
+                <option value="212">Water Boiling</option>
+            </select>
+            <label for="txtInputC">Enter Temperature (C)</label>
+            <input id="txtInputC" type="text" />
+            <label for="txtInputRH2">Enter Relative Humidity (%)</label>
+            <input id="txtInputRH2" type="text" />
+            <input type="button" value="Calculate" onclick="btnCClick()" />
+        </div>
+        <h2>Results:</h2>
+        <span class = "results" id="txtOutputDP2"></span>
+    </div>
+    <div class="footer">
+        <p>Created by Agui Navarro. Spring 2022. The University of Nevada, Reno.</p>
+    </div>   
+</body>
+</html>
