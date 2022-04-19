@@ -6,19 +6,24 @@ body {
   }
 h1 {
     color: green;
-    padding-left: 500px;
+    padding-left: 200px;
 }
 h2 {
     color: black;
-    padding-left: 500px;
+    padding-left: 200px;
 }
 
 h3 {
-    padding-left: 500px;
+    padding-left: 200px;
 }
 p {
     color: black;
-    padding-left: 500px;
+    padding-left: 200px;
+}
+
+p2 {
+    color: white;
+    padding-left: 185px;
 }
 
 ul {
@@ -29,9 +34,23 @@ ul {
     overflow: hidden;
     background-color: #333333;
 }
+
+ul2 {
+    display: block;
+    list-style-type: disc;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 200px;
+    margin-right: 0;
+    padding-left: 40px;
+}
   
 li {
     float: left;
+}
+
+li2 {
+    display: list-item;
 }
   
 li a {
@@ -45,23 +64,34 @@ li a:hover {
     background-color: #111111;
 }
 
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: right;
+    
+}
+table {
+    border-collapse: collapse;
+    margin-left: 200px;
+}
+
 .header {
     font-size: 20px;
     background-color: #333333;
 }
 
 .footer {
-    position: fixed;
+    padding: 15px;
     bottom: 0;
-    text-align: center;
+    background: #333333;
 }
 
 .buttons {
-    padding-left: 500px;
+    padding-left: 200px;
 }
 
 .results {
-    padding-left: 500px;
+    padding-left: 200px;
 }
 
 

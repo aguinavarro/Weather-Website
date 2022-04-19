@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/global.css">
     <title>Dew Point Calculator</title>
+    <script src="./scripts/inputvalidation.js"></script>
     <script src="./scripts/dewpointcalculator.js"></script>
 </head>
-<body onload="bodyOnLoad()">
+<body onload="bodyOnLoadCalc()">
     <div class="header">
         <nav>
             <ul>
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./about.html">About</a></li>
                 <li><a href="#">Dew Point Calculator</a></li>
+                <li><a href="./stations.html">Weather Stations</a></li>
             </ul>
         </nav>
     </div>
@@ -22,6 +24,7 @@
         <h2>Fahrenheit</h2>
         <div class="buttons">
             <select id="selCommonF" onchange="selCommonOnChangeF()">
+                <option value="">Preset Values</option>
                 <option value="-459.67">Kelvin</option>
                 <option value="32">Water Freezing</option>
                 <option value="212">Water Boiling</option>
@@ -40,6 +43,7 @@
         <h2>Celsius</h2>
         <div class="buttons">
             <select id="selCommonC" onchange="selCommonOnChangeC()">
+                <option value="">Preset Values</option>
                 <option value="-459.67">Kelvin</option>
                 <option value="32">Water Freezing</option>
                 <option value="212">Water Boiling</option>
@@ -54,7 +58,7 @@
         <span class = "results" id="txtOutputDP2"></span>
     </div>
     <div class="footer">
-        <p>Created by Agui Navarro. Spring 2022. The University of Nevada, Reno.</p>
+        <p2>Created by Agui Navarro. Spring 2022. The University of Nevada, Reno.</p>
     </div>   
 </body>
 </html>

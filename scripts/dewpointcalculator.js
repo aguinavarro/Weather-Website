@@ -1,4 +1,4 @@
-function bodyOnLoad()
+function bodyOnLoadCalc()
 {
     inputF = document.getElementById("txtInputF");
     inputRH1 = document.getElementById("txtInputRH1");
@@ -12,9 +12,14 @@ function bodyOnLoad()
 function btnFClick() {
     let outputNumDP1;
     let outputStringDP1;
+    let tempF;
+    let tempRH1;
 
-    let tempF = parseFloat(inputF.value);
-    let tempRH1 = parseFloat(inputRH1.value);
+    if (isFloatInRange(inputF.value, -459.67, 1000000000) && isFloatInRange(inputRH1.value, 0, 100))
+    {
+        tempF = parseFloat(inputF.value);
+        tempRH1 = parseFloat(inputRH1.value);
+    }
 
     let celsius;
     let tempDP1;
@@ -34,10 +39,14 @@ function btnFClick() {
 function btnCClick() {
     let outputNumDP2;
     let outputStringDP2;
-
-    let tempC = parseFloat(inputC.value);
-    let tempRH2 = parseFloat(inputRH2.value);
-
+    let tempC;
+    let tempRH2;
+    
+    if (isFloatInRange(inputC.value, -273.15, 1000000000) && isFloatInRange(inputRH2.value, 0, 100))
+    {
+        tempC = parseFloat(inputC.value);
+        tempRH2 = parseFloat(inputRH2.value);
+    }
     if (!isNaN(tempC) && (!isNaN(tempRH2))) {
         outputNumDP2 = tempC - ((100 - tempRH2) / 5);
         outputStringDP2 = "The dew point given these values is " + outputNumDP2.toFixed(2) + " (C)";
