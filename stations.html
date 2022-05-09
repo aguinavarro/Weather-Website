@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/global.css">
     <title>Weather Stations</title>
-    <script src="./scripts/weatherstationslist.js"></script>
+    <script src="./scripts/weatherstations.js"></script>
 </head>
 <body onload="bodyOnLoadWeather()">
     <div class="header">
@@ -19,8 +19,9 @@
         </nav>
     </div>
     <div>
-        <h1>Get Weather Stations</h1>
+        <img class="otherImage" src="./images/stations.png">
         <div class="buttons">
+            <br>
             <select id="selStates" onchange="selStates_onChange()">
                 <option>Choose State</option>
                 <option value="AL">Alabama</option>
@@ -77,7 +78,8 @@
         
             <br /><br />
         </div>
-        <h1>Station List</h1>
+        <h2 id="hide" style="display:none;">Station Table</h2>
+        <table id="stationTable"></table>
         <div id="divStationsPlaceholder"></div>
     </div>
     <div class="footer">

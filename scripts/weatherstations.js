@@ -31,14 +31,20 @@ function getStationsCallback() {
 }
 
 function selStates_onChange() {
+    let change = 0;
     selstates = document.getElementById("selStates");
     let stateAbbr = selstates.value;
 
     let myList = getStations(stateAbbr);
     //let myList = getStations2(stateAbbr);
 
-    displayStationsList(myList, divStationsPlaceholder);
-    //displayStationTable(myList, divStationsPlaceholder);
+    //displayStationsList(myList, divStationsPlaceholder);
+    if (change == 0)
+    {
+        document.getElementById('hide').style.display='block';
+        change = 1;
+    }
+    displayStationTable(myList, divStationsPlaceholder);
 }
 
 let stationsList = [];
@@ -60,8 +66,8 @@ function processXML(xmlDoc) {
             stationid: station_idXML,
             state: stateXML,
             stationName: station_nameXML,
-            latitude: latitudeXML,
-            longitude: longitudeXML,
+            stationLatitude: latitudeXML,
+            stationLongitude: longitudeXML,
             xmlURL: xml_urlXML
         };
         stationsList.push(station);
@@ -103,7 +109,9 @@ function displayStationsList(stationsList, divAttach) {
         let stationid = stationsList[x].stationid;
         let state = stationsList[x].state;
         let station_name = stationsList[x].stationName;
-        let listItem = stationid + " (" + state + ") - " + station_name;
+        let station_latitude = stationsList[x].stationLatitude;
+        let station_longitude = stationsList[x].stationLongitude;
+        let listItem = stationid + " (" + state + ") - " + station_name + "        " + station_latitude + ", " + station_longitude;
 
         let liCurrent = document.createElement("li2");
         liCurrent.innerHTML = listItem;
@@ -115,55 +123,56 @@ function displayStationsList(stationsList, divAttach) {
 
 function createTableHeader(tblArg) {
     let hdrRow = tblArg.insertRow();
-
     let cellStationId = hdrRow.insertCell();
+    let cellStationName = hdrRow.insertCell();
+    let cellStationState = hdrRow.insertCell();
+    let cellLatitude = hdrRow.insertCell();
+    let cellLongitude = hdrRow.insertCell();
+
     cellStationId.appendChild(document.createTextNode("Station Id"));
     hdrRow.appendChild(cellStationId)
 
-    let cellStationName = hdrRow.insertCell();
     cellStationName.appendChild(document.createTextNode("Station Name"));
     hdrRow.appendChild(cellStationName);
 
-    let cellStationState = hdrRow.insertCell();
     cellStationState.appendChild(document.createTextNode("Station State"));
     hdrRow.appendChild(cellStationState);
 
-    let cellLatitude = hdrRow.insertCell();
     cellLatitude.appendChild(document.createTextNode("Latitude"));
     hdrRow.appendChild(cellLatitude);
 
-    let cellLongitude = hdrRow.insertCell();
     cellLongitude.appendChild(document.createTextNode("Longitude"));
     hdrRow.appendChild(cellLongitude);
-
 }
 
 function createTableRow(tblArg, stationIdArg, stationNameArg, stationStateArg, stationLatitudeArg, stationLongitudeArg) {
     let curRow = tblArg.insertRow();
-
     let cellStationId = curRow.insertCell();
+    let cellStationName = curRow.insertCell();
+    let cellStationState = curRow.insertCell();
+    let cellLatitude = curRow.insertCell();
+    let cellLongitude = curRow.insertCell();
+
     cellStationId.appendChild(document.createTextNode(stationIdArg));
     curRow.appendChild(cellStationId);
 
-    let cellStationName = curRow.insertCell();
     cellStationName.appendChild(document.createTextNode(stationNameArg));
     curRow.appendChild(cellStationName);
 
-    let cellStationState = curRow.insertCell();
     cellStationState.appendChild(document.createTextNode(stationStateArg));
     curRow.appendChild(cellStationState);
 
-    let cellLatitude = curRow.insertCell();
     cellLatitude.appendChild(document.createTextNode(stationLatitudeArg));
     curRow.appendChild(cellLatitude);
-
-    let cellLongitude = curRow.insertCell();
+    
     cellLongitude.appendChild(document.createTextNode(stationLongitudeArg));
     curRow.appendChild(cellLongitude);
 }
 
 function displayStationTable(stationsList, divAttach) {
-    let uTable = document.createElement("table");
+    let uTable = document.getElementById("stationTable");
+    uTable.innerHTML = "";
+    uTable.setAttribute('padding','15px');
     createTableHeader(uTable);
     divAttach.appendChild(uTable);
 
@@ -172,8 +181,8 @@ function displayStationTable(stationsList, divAttach) {
             stationsList[x].stationid,
             stationsList[x].stationName,
             stationsList[x].state,
-            stationsList[x].latitude,
-            stationsList[x].longitude);
+            stationsList[x].stationLatitude,
+            stationsList[x].stationLongitude);
     }
 }
 
