@@ -1,5 +1,7 @@
-Name: Agui Navarro
-Class: IS 360.0001
-Username: aguinavarro
-GitHub e-mail; aguinaldon@nevada.unr.edu
-e-mail: aguinaldon@nevada.unr.edu
+# Basic Website
+## Course project for Internet Programming I
+### Included Items
+- Dew point calculator
+- Weather stations list
+    - Data from weather.gov
+### Basic HTML, CSS, and JS
